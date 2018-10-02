@@ -44,7 +44,25 @@ router.put('/', function(req, res, next) {
 
   var id = req.body.id;
 
-  res.send(id);
+
+  if(id){
+
+    knex('registro')
+      .insert({id: '', registro: id})
+      .then(function(a,b){
+        
+        if(a){
+          res.send(true);
+        }else{
+          res.send(false);
+        }
+        
+        
+      });
+  }
+
+  
+
 });
 
 
