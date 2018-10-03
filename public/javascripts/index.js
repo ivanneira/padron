@@ -38,9 +38,12 @@ $(function(){
 
         //queryObject.timestamp = Date.now();
 
+        alertModal('buscando datos...');
+
         $.post('registros',{q: queryObject}, function(data){
 
-            console.log(data)
+            //console.log(data)
+            $('.modal').modal('hide');
 
             if(data){
                 $('#filas').empty()
@@ -127,13 +130,50 @@ $(function(){
 
 function agregar(id){
 
+    alertModal('intentado guardar el registro...');
+
     $.ajax({
         method: 'PUT',
         url: 'registros',
         data: {registro: id, timestamp: Date.now(), planilla: 1, encuestador: 1, estado: 'amarillo'},
         success: function(data){
+
             console.log(data)
+
+            $('.modal').modal('hide');
+
+            if(data){
+
+                if(data === 'exist'){
+
+                    alertModal("El registro ya está guardado!")
+                }else{
+                    console.log(data)
+                    alertModal("El registro se guardó correctamente")
+
+                }
+
+            }else{
+
+                alertModal("hubo un error"); 
+            }
         }
     });
 
+}
+
+function alertModal(message){
+
+    $('.modal-title')
+        .text("Atención");
+
+    $('.modal-body')
+        .empty()
+        .append(message);
+
+    $('.modal-footer')
+        .empty()
+        .append('<button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>');
+
+    $(".modal").modal('show');
 }

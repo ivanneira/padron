@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
  
+
   var query = req.body;
 
   //console.log(query)
@@ -49,7 +50,7 @@ router.post('/', function(req, res, next) {
     for(var index in queryObject){
 
       //console.log(index)
-      console.log(queryObject[index])
+      //console.log(queryObject[index])
 
       if(index == 'Nacimiento'){
 
@@ -64,7 +65,7 @@ router.post('/', function(req, res, next) {
 
     queryString = queryString.slice(0, queryString.length-4);
 
-    console.log(queryString)
+    //console.log(queryString)
 
     knex.raw(queryString)
     .then(function(response){
@@ -116,15 +117,67 @@ router.post('/', function(req, res, next) {
 
 router.put('/', function(req, res, next) {
 
-  //console.log(registro)
+  console.log(req.body)
 
 
   if(req.body){
 
+    var idRegistro = req.body.registro;
+
+    if(idRegistro){
+
+      knex
+        .select()
+        .from('registro')
+        .where('registro', idRegistro)
+        .then(function(d,e){
+
+          console.log(d)
+          //console.log(idRegistro)
+          
+          if(e){
+            res.send(false)
+          }
+
+          if(d == ''){
+
+                knex('registro')
+                  .insert(
+                    {
+                      registro: req.body.registro, 
+                      timestamp: req.body.timestamp, 
+                      planilla: req.body.planilla,
+                      encuestador: req.body.encuestador,
+                      estado: req.body.estado
+                    })
+                  .then(function(a,b){
+
+                    console.log(a,b)
+                    
+                    if(a){
+                      res.send(true);
+                    }else{
+                      res.send(false);
+                    }
+                    
+                    
+                  });
+
+
+          }else{
+
+            res.send('exist');
+
+          }
+
+        })
+
+    }
+/*
     knex('registro')
       .insert(
         {
-          id: '', registro: req.body.registro, 
+          registro: req.body.registro, 
           timestamp: req.body.timestamp, 
           planilla: req.body.planilla,
           encuestador: req.body.encuestador,
@@ -140,6 +193,10 @@ router.put('/', function(req, res, next) {
         
         
       });
+
+      */
+
+      //res.send(true)
   }
 
 
