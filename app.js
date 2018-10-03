@@ -10,8 +10,8 @@ knex = require('knex')({
   connection: {
       host : 'localhost',
       port: 3306,
-      user : 'root',
-      password : '',
+      user : 'msp',
+      password : 'nautilus',
       database : 'padron'
   },
   debug: false,
