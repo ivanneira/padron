@@ -3,7 +3,30 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+
   res.render('registros');
+});
+
+router.get('/registros', function(req, res, next) {
+
+  knex
+    .select('padron.id','registro','encuestador','planilla','timestamp', 'estado', 'Sexo', 'Ejemplar', 'Vencimiento','Emision', 'Apellido', 'Nombre', 'Nacimiento', 'Fallecimiento')
+    .from('registro')
+    .leftJoin('padron', 'registro.registro', 'padron.id')
+    .then(function(d,e){
+
+      if(e){
+        console.log(e)
+        res.send(false)
+      }else if(d){
+        //console.log({data: d})
+        formatData(res,d);
+      }else{
+        res.send(false)
+      }
+
+    });
+
 });
 
 
@@ -201,6 +224,40 @@ router.put('/', function(req, res, next) {
 
 
 });
+
+function formatData(res,data){
+
+    var data2send = {
+        "data": []
+    };
+
+    for(var index in data){
+
+
+        data2send.data.push({
+            "id": data[index].id,
+            "registro": data[index].registro,
+            "encuestador": data[index].encuestador,
+            "planilla": data[index].planilla,
+            "timestamp": data[index].timestamp,
+            "estado": data[index].estado,
+            "Sexo": data[index].Sexo,
+            "Sexo": data[index].Sexo,
+            "Ejemplar": data[index].Ejemplar,
+            "Vencimiento": data[index].registro,
+            "Emision": data[index].encuestador,
+            "Apellido": data[index].planilla,
+            "Nombre": data[index].timestamp,
+            "Nacimiento": data[index].estado,
+            "Fallecimiento": data[index].Sexo,
+
+        });
+    }
+
+    res.send(data2send);
+
+}
+
 
 
 module.exports = router;
