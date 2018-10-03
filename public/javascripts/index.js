@@ -54,7 +54,7 @@ $(function(){
                     '   <td>' + data[index].Sexo + '</td>' +
                     '   <td>' + data[index].Nombre + '</td>' +
                     '   <td>' + data[index].Apellido + '</td>' +
-                    '   <td>' + data[index].Nacimiento + '</td>' +
+                    '   <td>' + data[index].Nacimiento.substring(data[index].Nacimiento.length-14,-1) + '</td>' +
                     '   <td>' + data[index].Calle + '</td>' +
                     '   <td>' + data[index].Numero + '</td>' +
                     '   <td>' + data[index].Monoblock + '</td>' +
