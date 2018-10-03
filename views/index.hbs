@@ -3,22 +3,22 @@
         <div class="col-md-3"></div>
         <div class="col-md-6">
 
-                <input id="busquedaDni" type="number" class="form-control" placeholder="Dni">
-                    <select class="form-control" id="busquedaSexo">
+                <input id="busquedaDni" type="number" class="busquedas form-control" placeholder="Dni">
+                    <select class="form-control" id="busquedas busquedaSexo">
                         <option value="">Cualquier sexo</option>
                         <option value="Femenino">Femenino</option>
                         <option value="Masculino">Masculino</option>
                     </select>
-                <input id="busquedaNombre" type="text" class="form-control" placeholder="Nombre">
-                <input id="busquedaApellido" type="text" class="form-control" placeholder="Apellido">
-                <input id="busquedaNacimiento" type="text" class="form-control" placeholder="Fecha de nacimiento">
-                <input id="busquedaCalle" type="text" class="form-control" placeholder="Calle">
-                <input id="busquedaNumero" type="text" class="form-control" placeholder="Numero">
-                <input id="busquedaMonoblock" type="text" class="form-control" placeholder="Monoblock">
-                <input id="busquedaCiudad" type="text" class="form-control" placeholder="Ciudad">
-                <input id="busquedaMunicipio" type="text" class="form-control" placeholder="Municipio">
-                <input id="busquedaBarrio" type="text" class="form-control" placeholder="Barrio">
-                <input id="busquedaID" type="text" class="form-control" placeholder="ID">
+                <input id="busquedaNombre" type="text" class="busquedas form-control" placeholder="Nombre">
+                <input id="busquedaApellido" type="text" class="busquedas form-control" placeholder="Apellido">
+                <input id="busquedaNacimiento" type="text" class="busquedas form-control" placeholder="Fecha de nacimiento">
+                <input id="busquedaCalle" type="text" class="busquedas form-control" placeholder="Calle">
+                <input id="busquedaNumero" type="text" class="busquedas form-control" placeholder="Numero">
+                <input id="busquedaMonoblock" type="text" class="busquedas form-control" placeholder="Monoblock">
+                <input id="busquedaCiudad" type="text" class="busquedas form-control" placeholder="Ciudad">
+                <input id="busquedaMunicipio" type="text" class="busquedas form-control" placeholder="Municipio">
+                <input id="busquedaBarrio" type="text" class="busquedas form-control" placeholder="Barrio">
+                <input id="busquedaID" type="text" class="busquedas form-control" placeholder="ID">
                 <button id="buscar" class="btn btn-default btn-block">Buscar</button>
 
         </div>
@@ -28,10 +28,11 @@
     <br>
     <div class="row">
 
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">Acción</th>
+                        <th scope="col">ID</th>
                         <th scope="col">DNI</th>
                         <th scope="col">Sexo</th>
                         <th scope="col">Nombre</th>                        
@@ -43,7 +44,6 @@
                         <th scope="col">Ciudad</th>
                         <th scope="col">Municipio</th>
                         <th scope="col">Barrio</th>
-                        <th scope="col">ID</th>
 
                     </tr>
                 </thead>

@@ -171,7 +171,8 @@ router.put('/', function(req, res, next) {
                       timestamp: req.body.timestamp, 
                       planilla: req.body.planilla,
                       encuestador: req.body.encuestador,
-                      estado: req.body.estado
+                      estado: req.body.estado,
+                      comentario: req.body.comentario
                     })
                   .then(function(a,b){
 

@@ -8,7 +8,7 @@ $(function(){
         autoclose: true
     });
 
-    $(document).keypress(function(e) {
+    $('.busquedas').keypress(function(e) {
         if(e.which == 13) {
             $("#buscar").click();
         }
@@ -53,6 +53,7 @@ $(function(){
                     var htmlString = 
                     '<tr>' +
                     '   <td><button class="btn btn-success fila" data-id="' + data[index].ID + '" type="button">Agregar</button></td>' +
+                    '   <td>' + data[index].ID + '</td>' +
                     '   <td>' + data[index].Dni + '</td>' +
                     '   <td>' + data[index].Sexo + '</td>' +
                     '   <td>' + data[index].Nombre + '</td>' +
@@ -64,7 +65,7 @@ $(function(){
                     '   <td>' + data[index].Ciudad + '</td>' +
                     '   <td>' + data[index].Municipio + '</td>' +
                     '   <td>' + data[index].Barrio + '</td>' +
-                    '   <td>' + data[index].ID + '</td>' +
+
 
                     '</tr>';
 
@@ -84,7 +85,7 @@ $(function(){
         });
 
 
-        console.log(queryObject)
+        //console.log(queryObject)
 
     });
 
@@ -130,36 +131,83 @@ $(function(){
 
 function agregar(id){
 
-    alertModal('intentado guardar el registro...');
 
-    $.ajax({
-        method: 'PUT',
-        url: 'registros',
-        data: {registro: id, timestamp: Date.now(), planilla: 1, encuestador: 1, estado: 'amarillo'},
-        success: function(data){
+    var htmlString = 
+        '<input type="number" class="agregados form-control" id="planilla" placeholder="número de planilla"><br/>' +
+        '<input type="number" class="agregados form-control" id="encuestador" placeholder="número de encuestador"><br/>' +
+        '<select class="agregados form-control" id="estado">' +
+        '    <option value="">Sin estado</option>' +
+        '    <option value="amarillo">Amarillo</option>' +
+        '    <option value="naranja">Naranja</option>' +
+        '    <option value="azul">Azul</option>' +        
+        '</select><br/>' +
+        '<div class="form-group">' +
+        '    <label for="comentario">comentario opcional</label>' +
+        '    <textarea class="form-control" id="comentario" rows="3"></textarea>' +
+        '</div>';
 
-            console.log(data)
 
-            $('.modal').modal('hide');
 
-            if(data){
+    $('.modal-title').text("Guardar registro ID:" + id)
+    $(".modal-body").empty().append(htmlString);
+    $(".modal-footer").empty().append('<button id="enviardatos" class="btn btn-success btn-block">Agregar</button>')
 
-                if(data === 'exist'){
+    $('.modal').modal('show')
 
-                    alertModal("El registro ya está guardado!")
-                }else{
-                    console.log(data)
-                    alertModal("El registro se guardó correctamente")
-
-                }
-
-            }else{
-
-                alertModal("hubo un error"); 
-            }
+    $('.agregados').unbind('keypress').keypress(function(e) {
+        if(e.which == 13) {
+            $("#enviardatos").click();
         }
     });
 
+    $('#enviardatos').click(function(){
+
+        var planilla = $('#planilla').val();
+        var encuestador = $('#encuestador').val()
+        var estado = $('#estado').val();
+        var comentario = $('#comentario').val()
+
+        if( planilla != '' || encuestador != ''){
+
+            alertModal('intentado guardar el registro...');
+
+            $.ajax({
+                method: 'PUT',
+                url: 'registros',
+                data: {registro: id, timestamp: Date.now(), planilla:planilla, encuestador: encuestador, estado: estado, comentario: comentario},
+                success: function(data){
+        
+                    //console.log(data)
+        
+                    $('.modal').modal('hide');
+        
+                    if(data){
+        
+                        if(data === 'exist'){
+        
+                            alertModal("El registro ya está guardado!")
+                        }else{
+                            //console.log(data)
+                            alertModal("El registro se guardó correctamente")
+        
+                        }
+        
+                    }else{
+        
+                        alertModal("hubo un error"); 
+                    }
+                }
+            });
+
+        }else{
+
+            alert("faltan datos");
+        }
+    });
+
+    /*
+
+*/
 }
 
 function alertModal(message){
