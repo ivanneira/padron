@@ -34,6 +34,9 @@ app.use(express.static(path.join(__dirname, '/node_modules/jquery/dist')));
 app.use(express.static(path.join(__dirname, '/node_modules/bootstrap/dist')));
 
 
+//ruta de bootstrap-datepicker
+app.use(express.static(path.join(__dirname, '/node_modules/bootstrap-datepicker/dist')));
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));

@@ -1,37 +1,70 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <div class="input-group mb-3">
-                <input id="busqueda" type="text" class="form-control" placeholder="ingrese nombre o DNI" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="buscar" class="btn btn-outline-secondary" type="button">Buscar</button>
-                </div>
-            </div>
+
+                <input id="busquedaDni" type="number" class="form-control" placeholder="Dni">
+                    <select class="form-control" id="busquedaSexo">
+                        <option value="">Cualquier sexo</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Masculino">Masculino</option>
+                    </select>
+                <input id="busquedaNombre" type="text" class="form-control" placeholder="Nombre">
+                <input id="busquedaApellido" type="text" class="form-control" placeholder="Apellido">
+                <input id="busquedaNacimiento" type="text" class="form-control" placeholder="Fecha de nacimiento">
+                <input id="busquedaCalle" type="text" class="form-control" placeholder="Calle">
+                <input id="busquedaNumero" type="text" class="form-control" placeholder="Numero">
+                <input id="busquedaMonoblock" type="text" class="form-control" placeholder="Monoblock">
+                <input id="busquedaCiudad" type="text" class="form-control" placeholder="Ciudad">
+                <input id="busquedaMunicipio" type="text" class="form-control" placeholder="Municipio">
+                <input id="busquedaBarrio" type="text" class="form-control" placeholder="Barrio">
+                <input id="busquedaID" type="text" class="form-control" placeholder="ID">
+                <button id="buscar" class="btn btn-default btn-block">Buscar</button>
+
         </div>
         <div class="col-md-3"></div>
     </div>
     <br>
     <br>
     <div class="row">
-        <div class="col-md-12">
+
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">DNI</th>
                         <th scope="col">Acción</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Sexo</th>
+                        <th scope="col">Nombre</th>                        
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Nacimiento</th>                        
+                        <th scope="col">Calle</th>
+                        <th scope="col">Número</th>
+                        <th scope="col">Monoblock</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">Municipio</th>
+                        <th scope="col">Barrio</th>
+                        <th scope="col">ID</th>
+
                     </tr>
                 </thead>
                 <tbody id="filas">
                     <tr>
-                        <td>nombre</td>
-                        <td>dni</td>
-                                                <td>dni</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
                     </tr>
 
                 </tbody>
             </table>
-        </div>
+
     </div>
 </div>
