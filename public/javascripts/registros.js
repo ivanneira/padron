@@ -60,21 +60,33 @@ $(function(){
             {"data": "Fallecimiento"},
             {"data": "comentario"}
         ],
-        // "columnDefs": [
-        //     {
-        //         "targets": [ 0 ],
-        //         "visible": false,
-        //         "searchable": false
-        //     },
-        //     {
-        //         "targets": [ 5 ],
-        //         "visible": false
-        //     },
-        //     {
-        //         "targets": [ 8 ],
-        //         "visible": false
-        //     }
-        // ],
+        "columnDefs": [
+            {
+                "targets": [ 0 ],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [ 5 ],
+                "visible": false
+            },
+            {
+                "targets": [ 8 ],
+                "visible": false
+            },
+            {
+                "targets": [ 9 ],
+                "visible": false
+            },
+            {
+                "targets": [ 10 ],
+                "visible": false
+            },
+            {
+                "targets": [ 14 ],
+                "visible": false
+            }
+        ],
     }).on('xhr', function () {
         $('.modal').modal('hide');
     })
