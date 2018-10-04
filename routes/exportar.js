@@ -70,20 +70,20 @@ router.get('/excel', function(req, res, next) {
 
         for(var index in row){
 
-            wsPlanillas.cell(filecounter,1).string(notnull(row[index].registro));
+            wsPlanillas.cell(filecounter,1).number(row[index].registro);
             wsPlanillas.cell(filecounter,2).string(notnull(row[index].encuestador));
-            wsPlanillas.cell(filecounter,3).string(notnull(row[index].planilla));
-            wsPlanillas.cell(filecounter,4).string(notnull(row[index].estado));
-            wsPlanillas.cell(filecounter,5).string(notnull(row[index].Dni));
-            wsPlanillas.cell(filecounter,6).string(notnull(row[index].Sexo));
-            wsPlanillas.cell(filecounter,7).string(notnull(row[index].Ejemplar));
-            wsPlanillas.cell(filecounter,8).string(notnull(row[index].Vencimiento));
-            wsPlanillas.cell(filecounter,9).string(notnull(row[index].Emision));
-            wsPlanillas.cell(filecounter,10).string(notnull(row[index].Apellido));
-            wsPlanillas.cell(filecounter,11).string(notnull(row[index].Nombre));
-            wsPlanillas.cell(filecounter,12).string(notnull(row[index].Nacimiento));
-            wsPlanillas.cell(filecounter,13).string(notnull(row[index].Fallecimiento));
-            wsPlanillas.cell(filecounter,14).string(notnull(row[index].comentario));
+            wsPlanillas.cell(filecounter,3).number(row[index].planila);
+            wsPlanillas.cell(filecounter,4).string(row[index].estado);
+            wsPlanillas.cell(filecounter,5).string(row[index].Dni));
+            wsPlanillas.cell(filecounter,6).string(row[index].Sexo);
+            wsPlanillas.cell(filecounter,7).string(row[index].Ejemplar);
+            wsPlanillas.cell(filecounter,8).string(row[index].Vencimiento);
+            wsPlanillas.cell(filecounter,9).string(row[index].Emision));
+            wsPlanills.cell(filecounter,10).string(row[index].Apellido);
+            wsPlanillas.cell(filecounter,11).string(row[index].Nombre);
+            wsPlanillas.cell(filecounter,12).string(row[index].Nacimiento);
+            wsPlanillas.cell(filecounter,13).string(row[index].Fallecimiento);
+            wsPlanillas.cell(filecounter,14).string(row[index].comentario);
 
 
             filecounter++;
