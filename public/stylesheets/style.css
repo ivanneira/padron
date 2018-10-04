@@ -21,3 +21,14 @@ td{
   border-bottom: 1px solid #dddddd;
   border-right: 1px solid #dddddd;
 }
+
+
+.verde{
+
+  background-color: limegreen;
+}
+
+.rojo {
+
+  background-color: lightcoral;
+}

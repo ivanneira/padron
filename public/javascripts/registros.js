@@ -33,6 +33,15 @@ $(function(){
                 "sSortDescending": ": Activar para ordenar la columna de manera descendente"
             }
         },
+        "createdRow": function( row, data, dataIndex){
+
+            console.log(data)
+            if( data[4] ==  `reempadronado`){
+                $(row).addClass('verde');
+            }else if(data[4] == 'visitado sin reempadronar'){
+                $(row).addClass('rojo');
+            }
+        },
 		"columns": [
             {"data": "id"},
             {"data": "registro"},
