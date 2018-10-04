@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.get('/registros', function(req, res, next) {
 
   knex
-    .select('padron.id','registro','encuestador','planilla','timestamp', 'estado', 'Sexo', 'Ejemplar', 'Vencimiento','Emision', 'Apellido', 'Nombre', 'Nacimiento', 'Fallecimiento')
+    .select('padron.id','registro','encuestador','planilla','timestamp', 'estado' ,'Dni', 'Sexo', 'Ejemplar', 'Vencimiento','Emision', 'Apellido', 'Nombre', 'Nacimiento', 'Fallecimiento','comentario')
     .from('registro')
     .leftJoin('padron', 'registro.registro', 'padron.id')
     .then(function(d,e){
@@ -226,6 +226,64 @@ router.put('/', function(req, res, next) {
 
 });
 
+
+router.patch('/', function(req, res, next) {
+
+  console.log(req.body)
+
+  knex('registro')
+  .where('registro', '=', req.body.registro)
+  .update({
+    planilla: req.body.planilla,
+    encuestador: req.body.encuestador,
+    estado:  req.body.estado,
+    comentario: req.body.comentario
+  }).then(function(d,e){
+
+    console.log(d)
+    //console.log(e)
+
+    if(e){
+      res.send(false);
+    }else if(d > 0){
+
+      res.send(true);
+    }else{
+      res.send(null);
+    }
+
+  });
+
+
+});
+
+
+router.delete('/', function(req, res, next) {
+
+  console.log(req.body)
+
+  knex('registro')
+  .where('registro', '=', req.body.registro)
+  .del().then(function(d,e){
+
+    console.log(d)
+    console.log(e)
+
+    if(e){
+      res.send(false);
+    }else if(d > 0){
+
+      res.send(true);
+    }else{
+      res.send(null);
+    }
+
+  });
+
+
+});
+
+
 function formatData(res,data){
 
     var data2send = {
@@ -237,12 +295,12 @@ function formatData(res,data){
 
         data2send.data.push({
             "id": data[index].id,
+            "Dni": data[index].Dni,
             "registro": data[index].registro,
             "encuestador": data[index].encuestador,
             "planilla": data[index].planilla,
             "timestamp": data[index].timestamp,
             "estado": data[index].estado,
-            "Sexo": data[index].Sexo,
             "Sexo": data[index].Sexo,
             "Ejemplar": data[index].Ejemplar,
             "Vencimiento": data[index].registro,
@@ -251,9 +309,12 @@ function formatData(res,data){
             "Nombre": data[index].timestamp,
             "Nacimiento": data[index].estado,
             "Fallecimiento": data[index].Sexo,
+            "comentario": data[index].comentario,        
 
         });
     }
+
+    console.log(data2send)
 
     res.send(data2send);
 

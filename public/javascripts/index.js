@@ -136,10 +136,9 @@ function agregar(id){
         '<input type="number" class="agregados form-control" id="planilla" placeholder="número de planilla"><br/>' +
         '<input type="number" class="agregados form-control" id="encuestador" placeholder="número de encuestador"><br/>' +
         '<select class="agregados form-control" id="estado">' +
-        '    <option value="">Sin estado</option>' +
-        '    <option value="amarillo">Amarillo</option>' +
-        '    <option value="naranja">Naranja</option>' +
-        '    <option value="azul">Azul</option>' +        
+        '    <option value="reempadronado">reempadronado</option>' +
+        '    <option value="visitado sin reempadronar">Visitado sin reempadronar</option>' +
+        '    <option value="otro">Otro</option>' +        
         '</select><br/>' +
         '<div class="form-group">' +
         '    <label for="comentario">comentario opcional</label>' +
