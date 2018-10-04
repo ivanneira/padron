@@ -19,7 +19,7 @@ router.get('/registros', function(req, res, next) {
         //console.log(e)
         res.send(false)
       }else if(d){
-        //console.log({data: d})
+        console.log(d)
         formatData(res,d);
       }else{
         res.send(false)

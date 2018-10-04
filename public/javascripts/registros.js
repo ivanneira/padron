@@ -59,9 +59,23 @@ $(function(){
             {"data": "Nacimiento"},
             {"data": "Fallecimiento"},
             {"data": "comentario"}
-        ]
-    })
-    .on('xhr', function () {
+        ]},
+        "columnDefs": [
+            {
+                "targets": [ 0 ],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [ 5 ],
+                "visible": false
+            },
+            {
+                "targets": [ 8 ],
+                "visible": false
+            }
+        ],
+    ).on('xhr', function () {
         $('.modal').modal('hide');
     })
     .on('select', function(e,dt,type,indexes){
@@ -73,7 +87,7 @@ $(function(){
 
 function editModal(data,datatable){
 
-    //console.log(data)
+    console.log(data)
     $(".modal-title").text('Editar');
 
     var htmlString = 
