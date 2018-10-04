@@ -91,6 +91,8 @@ function editModal(data,datatable){
         '<button id="editarDatos" class="btn btn-success">editar</button>'
         );
 
+
+
     $('#edicionplanilla').val(data.planilla);
     $('#edicionencuestador').val(data.encuestador);
     $('#edicionestado').val(data.estado);
@@ -140,6 +142,12 @@ function editModal(data,datatable){
 
     });
 
+    $('.edicion').unbind('keypress').keypress(function(e) {
+        if(e.which == 13) {
+            $("#editarDatos").click();
+        }
+    });
+
     $('#borrar').unbind('click').click(function(){
 
         var registro = data.registro;
@@ -156,4 +164,7 @@ function editModal(data,datatable){
     });
 
     $('.modal').modal('show');
+
+
+    $('#edicionplanilla').focus();
 }

@@ -223,4 +223,6 @@ function alertModal(message){
         .append('<button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>');
 
     $(".modal").modal('show');
+
+    $('#planilla').focus();
 }
