@@ -59,7 +59,7 @@ $(function(){
             {"data": "Nacimiento"},
             {"data": "Fallecimiento"},
             {"data": "comentario"}
-        ]},
+        ],
         "columnDefs": [
             {
                 "targets": [ 0 ],
