@@ -143,22 +143,32 @@ router.get('/excel', function(req, res, next) {
             filecounter++;
         }
 
-        wsPlanillas.column(1).setWidth(18);
-        wsPlanillas.column(2).setWidth(18);
-        wsPlanillas.column(3).setWidth(18);
-        wsPlanillas.column(4).setWidth(18);
-        wsPlanillas.column(5).setWidth(18);
-        wsPlanillas.column(6).setWidth(18);
-        wsPlanillas.column(7).setWidth(18);
+        wsPlanillas.column(1).setWidth(15);
+        wsPlanillas.column(2).setWidth(15);
+        wsPlanillas.column(3).setWidth(15);
+        wsPlanillas.column(4).setWidth(22);
+        wsPlanillas.column(5).setWidth(15);
+        wsPlanillas.column(6).setWidth(15);
+        wsPlanillas.column(7).setWidth(15);
         wsPlanillas.column(8).setWidth(18);
         wsPlanillas.column(9).setWidth(18);
-        wsPlanillas.column(10).setWidth(18);
-        wsPlanillas.column(11).setWidth(18);
-        wsPlanillas.column(12).setWidth(18);
-        wsPlanillas.column(13).setWidth(18);
+        wsPlanillas.column(10).setWidth(20);
+        wsPlanillas.column(11).setWidth(20);
+        wsPlanillas.column(12).setWidth(15);
+        wsPlanillas.column(13).setWidth(20);
         wsPlanillas.column(14).setWidth(18);
-
-
+        wsPlanillas.column(15).setWidth(15);
+        wsPlanillas.column(16).setWidth(15);
+        wsPlanillas.column(17).setWidth(20);
+        wsPlanillas.column(18).setWidth(15);
+        wsPlanillas.column(19).setWidth(25);
+        wsPlanillas.column(20).setWidth(25);
+        wsPlanillas.column(21).setWidth(20);
+        wsPlanillas.column(22).setWidth(20);
+        wsPlanillas.column(23).setWidth(20);
+        wsPlanillas.column(24).setWidth(20);
+        wsPlanillas.column(25).setWidth(20);
+        wsPlanillas.column(26).setWidth(30);
 
         workbook.write('listado.xlsx',res);
 
