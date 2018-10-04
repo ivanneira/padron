@@ -72,7 +72,7 @@ router.get('/excel', function(req, res, next) {
 
             wsPlanillas.cell(filecounter,1).number(row[index].registro);
             wsPlanillas.cell(filecounter,2).string(row[index].encuestador);
-            wsPlanillas.cell(filecounter,3).number(row[index].planila);
+            wsPlanillas.cell(filecounter,3).number(row[index].planilla);
             wsPlanillas.cell(filecounter,4).string(row[index].estado);
             wsPlanillas.cell(filecounter,5).string(row[index].Dni);
             wsPlanillas.cell(filecounter,6).string(row[index].Sexo);
