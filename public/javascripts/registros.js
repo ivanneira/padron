@@ -36,9 +36,9 @@ $(function(){
         "createdRow": function( row, data, dataIndex){
 
             console.log(data)
-            if( data[4] ==  `reempadronado`){
+            if( data.estado ==  `reempadronado`){
                 $(row).addClass('verde');
-            }else if(data[4] == 'visitado sin reempadronar'){
+            }else if(data.estado == 'visitado sin reempadronar'){
                 $(row).addClass('rojo');
             }
         },
