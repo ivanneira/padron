@@ -75,7 +75,7 @@ $(function(){
                 "visible": false
             }
         ],
-    ).on('xhr', function () {
+    }).on('xhr', function () {
         $('.modal').modal('hide');
     })
     .on('select', function(e,dt,type,indexes){
