@@ -303,12 +303,12 @@ function formatData(res,data){
             "estado": data[index].estado,
             "Sexo": data[index].Sexo,
             "Ejemplar": data[index].Ejemplar,
-            "Vencimiento": data[index].registro,
-            "Emision": data[index].encuestador,
-            "Apellido": data[index].planilla,
-            "Nombre": data[index].timestamp,
-            "Nacimiento": data[index].estado,
-            "Fallecimiento": data[index].Sexo,
+            "Vencimiento": data[index].Vencimiento,
+            "Emision": data[index].Emision,
+            "Apellido": data[index].Apellido,
+            "Nombre": data[index].Nombre,
+            "Nacimiento": data[index].Nacimiento,
+            "Fallecimiento": data[index].Fallecimiento,
             "comentario": data[index].comentario,        
 
         });
