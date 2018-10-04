@@ -35,7 +35,7 @@ $(function(){
         },
         "createdRow": function( row, data, dataIndex){
 
-            console.log(data)
+            //console.log(data)
             if( data.estado ==  `reempadronado`){
                 $(row).addClass('verde');
             }else if(data.estado == 'visitado sin reempadronar'){
@@ -166,7 +166,7 @@ function editModal(data,datatable){
             url: 'registros',
             data: {registro: registro},
             success: function(data){
-                console.log(data);
+                //console.log(data);
                 datatable.ajax.reload();
             }
         })

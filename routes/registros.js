@@ -16,7 +16,7 @@ router.get('/registros', function(req, res, next) {
     .then(function(d,e){
 
       if(e){
-        console.log(e)
+        //console.log(e)
         res.send(false)
       }else if(d){
         //console.log({data: d})
@@ -140,7 +140,7 @@ router.post('/', function(req, res, next) {
 
 router.put('/', function(req, res, next) {
 
-  console.log(req.body)
+  //console.log(req.body)
 
 
   if(req.body){
@@ -155,7 +155,7 @@ router.put('/', function(req, res, next) {
         .where('registro', idRegistro)
         .then(function(d,e){
 
-          console.log(d)
+          //console.log(d)
           //console.log(idRegistro)
           
           if(e){
@@ -176,7 +176,7 @@ router.put('/', function(req, res, next) {
                     })
                   .then(function(a,b){
 
-                    console.log(a,b)
+                    //console.log(a,b)
                     
                     if(a){
                       res.send(true);
@@ -229,7 +229,7 @@ router.put('/', function(req, res, next) {
 
 router.patch('/', function(req, res, next) {
 
-  console.log(req.body)
+  //console.log(req.body)
 
   knex('registro')
   .where('registro', '=', req.body.registro)
@@ -240,7 +240,7 @@ router.patch('/', function(req, res, next) {
     comentario: req.body.comentario
   }).then(function(d,e){
 
-    console.log(d)
+    //console.log(d)
     //console.log(e)
 
     if(e){
@@ -260,14 +260,14 @@ router.patch('/', function(req, res, next) {
 
 router.delete('/', function(req, res, next) {
 
-  console.log(req.body)
+  //console.log(req.body)
 
   knex('registro')
   .where('registro', '=', req.body.registro)
   .del().then(function(d,e){
 
-    console.log(d)
-    console.log(e)
+    //console.log(d)
+    //console.log(e)
 
     if(e){
       res.send(false);
@@ -314,7 +314,7 @@ function formatData(res,data){
         });
     }
 
-    console.log(data2send)
+    //console.log(data2send)
 
     res.send(data2send);
 

@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/excel', function(req, res, next) {
 
-    console.log(1)
+    //console.log(1)
 
     var workbook = new excel.Workbook();
     var wsPlanillas = workbook.addWorksheet('planillas');
@@ -38,7 +38,7 @@ router.get('/excel', function(req, res, next) {
         return data ? data : 'sin datos';
     }
 
-    console.log(2)
+    //console.log(2)
 
     knex
     .select(
@@ -75,9 +75,9 @@ router.get('/excel', function(req, res, next) {
     .from('registro')
     .leftJoin('padron', 'registro.registro', 'padron.id')
     .then(function(row,e){
-        console.log(3)
+        //console.log(3)
       if(e){
-        console.log(e)
+        //console.log(e)
         res.send(false)
       }else if(row){
 
