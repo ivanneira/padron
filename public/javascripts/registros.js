@@ -87,7 +87,7 @@ $(function(){
 
 function editModal(data,datatable){
 
-    console.log(data)
+    //console.log(data)
     $(".modal-title").text('Editar');
 
     var htmlString = 
