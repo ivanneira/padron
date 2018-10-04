@@ -41,7 +41,37 @@ router.get('/excel', function(req, res, next) {
     console.log(2)
 
     knex
-    .select('padron.id','registro','encuestador','planilla','timestamp', 'estado' ,'Dni', 'Sexo', 'Ejemplar', 'Vencimiento','Emision', 'Apellido', 'Nombre', 'Nacimiento', 'Fallecimiento','comentario')
+    .select(
+        'padron.id',
+        'registro',
+        'encuestador',
+        'planilla',
+        'timestamp', 
+        'estado' ,
+        'Dni', 
+        'Sexo', 
+        'Ejemplar', 
+        'Vencimiento',
+        'Emision', 
+        'Apellido', 
+        'Nombre', 
+        'Nacimiento', 
+        'Fallecimiento', 
+
+        'Cuil', 
+        'Calle',
+        'Numero',
+        'Piso',
+        'Departamento',
+        'Cpostal',
+        'Barrio',
+        'Monoblock',
+        'Ciudad',
+        'Municipio',
+        'Provincia',
+        'Pais',
+        'comentario'
+        )
     .from('registro')
     .leftJoin('padron', 'registro.registro', 'padron.id')
     .then(function(row,e){
@@ -64,26 +94,50 @@ router.get('/excel', function(req, res, next) {
         wsPlanillas.cell(1,11).string("Nombre").style(estiloBold);
         wsPlanillas.cell(1,12).string("Nacimiento").style(estiloBold);
         wsPlanillas.cell(1,13).string("Fallecimiento").style(estiloBold);
-        wsPlanillas.cell(1,14).string("comentario").style(estiloBold);
+        wsPlanillas.cell(1,14).string("Cuil").style(estiloBold);
+        wsPlanillas.cell(1,15).string("Calle").style(estiloBold);
+        wsPlanillas.cell(1,16).string("Numero").style(estiloBold);
+        wsPlanillas.cell(1,17).string("Piso").style(estiloBold);
+        wsPlanillas.cell(1,18).string("Departamento").style(estiloBold);
+        wsPlanillas.cell(1,19).string("Cpostal").style(estiloBold);
+        wsPlanillas.cell(1,20).string("Barrio").style(estiloBold);
+        wsPlanillas.cell(1,21).string("Monoblock").style(estiloBold);
+        wsPlanillas.cell(1,22).string("Ciudad").style(estiloBold);
+        wsPlanillas.cell(1,23).string("Municipio").style(estiloBold);
+        wsPlanillas.cell(1,24).string("Provincia").style(estiloBold);
+        wsPlanillas.cell(1,25).string("Pais").style(estiloBold);
+        wsPlanillas.cell(1,26).string("comentario").style(estiloBold);
 
         var filecounter = 2;
 
         for(var index in row){
 
-            wsPlanillas.cell(filecounter,1).number(row[index].registro);
-            wsPlanillas.cell(filecounter,2).string(row[index].encuestador);
-            wsPlanillas.cell(filecounter,3).number(row[index].planilla);
-            wsPlanillas.cell(filecounter,4).string(row[index].estado);
-            wsPlanillas.cell(filecounter,5).string(row[index].Dni);
+            wsPlanillas.cell(filecounter,1).number(row[index].registro).style(estiloCentrado);
+            wsPlanillas.cell(filecounter,2).string(row[index].encuestador).style(estiloCentrado);
+            wsPlanillas.cell(filecounter,3).number(row[index].planilla).style(estiloCentrado);
+            wsPlanillas.cell(filecounter,4).string(row[index].estado).style(estiloCentrado);
+            wsPlanillas.cell(filecounter,5).string(row[index].Dni).style(estiloCentrado);
             wsPlanillas.cell(filecounter,6).string(row[index].Sexo);
-            wsPlanillas.cell(filecounter,7).string(row[index].Ejemplar);
-            wsPlanillas.cell(filecounter,8).date(new Date(row[index].Vencimiento));
-            wsPlanillas.cell(filecounter,9).date(new Date(row[index].Emision));
+            wsPlanillas.cell(filecounter,7).string(row[index].Ejemplar).style(estiloCentrado);
+            wsPlanillas.cell(filecounter,8).date(new Date(row[index].Vencimiento)).style(estiloCentrado).style(estiloFecha);
+            wsPlanillas.cell(filecounter,9).date(new Date(row[index].Emision)).style(estiloCentrado).style(estiloFecha);
             wsPlanillas.cell(filecounter,10).string(row[index].Apellido);
             wsPlanillas.cell(filecounter,11).string(row[index].Nombre);
-            wsPlanillas.cell(filecounter,12).date(new Date(row[index].Nacimiento));
-            wsPlanillas.cell(filecounter,13).string(row[index].Fallecimiento);
-            wsPlanillas.cell(filecounter,14).string(row[index].comentario);
+            wsPlanillas.cell(filecounter,12).date(new Date(row[index].Nacimiento)).style(estiloCentrado).style(estiloFecha);
+            wsPlanillas.cell(filecounter,13).string(row[index].Fallecimiento.toString()).style(estiloCentrado);
+            wsPlanillas.cell(filecounter,14).string(row[index].Cuil);
+            wsPlanillas.cell(filecounter,15).string(row[index].Calle);
+            wsPlanillas.cell(filecounter,16).string(row[index].Numero);
+            wsPlanillas.cell(filecounter,17).string(row[index].Piso);
+            wsPlanillas.cell(filecounter,18).string(row[index].Departamento);
+            wsPlanillas.cell(filecounter,19).string(row[index].Cpostal);
+            wsPlanillas.cell(filecounter,20).string(row[index].Barrio);
+            wsPlanillas.cell(filecounter,21).string(row[index].Monoblock);
+            wsPlanillas.cell(filecounter,22).string(row[index].Ciudad);
+            wsPlanillas.cell(filecounter,23).string(row[index].Municipio);
+            wsPlanillas.cell(filecounter,24).string(row[index].Provincia);
+            wsPlanillas.cell(filecounter,25).string(row[index].Pais);
+            wsPlanillas.cell(filecounter,26).string(row[index].comentario);
 
 
             filecounter++;
