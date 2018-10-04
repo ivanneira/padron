@@ -32,7 +32,12 @@ $(function(){
             if(selector.val() != ''){
 
                 queryObject[field] = selector.val();
+
+                if(selector == $('#busquedanacimiento')){
+                    queryObject[field] = selector.val() + 'T03:00:00.000Z';
+                }
             }
+
 
         }
 
