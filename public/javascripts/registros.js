@@ -122,7 +122,7 @@ function editModal(data,datatable){
 
                 }else if(typeof(data) == null){
                     $(".modal-title").text('ERROR');
-                    $(".modal-body").empty().append()('No se pudieron guardar los datos, intente nuevamente');
+                    $(".modal-body").empty().append('No se pudieron guardar los datos, intente nuevamente');
                     $(".modal-footer").empty();
 
                 }else{
@@ -130,7 +130,7 @@ function editModal(data,datatable){
 
 
                     $(".modal-title").text('Correcto');
-                    $(".modal-body").empty().append()('Se editó el registro');
+                    $(".modal-body").empty().append('Se editó el registro');
                     $(".modal-footer").empty();
 
                 }
