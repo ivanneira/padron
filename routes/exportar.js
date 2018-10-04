@@ -79,7 +79,7 @@ router.get('/excel', function(req, res, next) {
             wsPlanillas.cell(filecounter,7).string(row[index].Ejemplar);
             wsPlanillas.cell(filecounter,8).date(new Date(row[index].Vencimiento));
             wsPlanillas.cell(filecounter,9).date(new Date(row[index].Emision));
-            wsPlanills.cell(filecounter,10).string(row[index].Apellido);
+            wsPlanillas.cell(filecounter,10).string(row[index].Apellido);
             wsPlanillas.cell(filecounter,11).string(row[index].Nombre);
             wsPlanillas.cell(filecounter,12).date(new Date(row[index].Nacimiento));
             wsPlanillas.cell(filecounter,13).date(new Date(row[index].Fallecimiento));
