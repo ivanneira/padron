@@ -14,12 +14,12 @@ router.get('/registros', function(req, res, next) {
     .from('registro')
     .leftJoin('padron', 'registro.registro', 'padron.id')
     .then(function(d,e){
-
+      console.log(d)
       if(e){
         //console.log(e)
         res.send(false)
       }else if(d){
-        console.log(d)
+        
         formatData(res,d);
       }else{
         res.send(false)
