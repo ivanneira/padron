@@ -172,6 +172,8 @@ router.get('/excel', function(req, res, next) {
         knex.raw("select Dni,  Sexo, Ejemplar, Vencimiento, Emision, Apellido, Nombre, Nacimiento, Fallecimiento, Cuil, Calle, Piso, Departamento, Cpostal,  Barrio, Monoblock, Ciudad, Municipio, Provincia, Pais  from padron pa where pa.id not in (select re.registro from registro re)")
         .then(function(row2,e2){
 
+            console.log(row2)
+
             if(e2){
                 //console.log(e)
                 res.send(false)
@@ -205,7 +207,7 @@ router.get('/excel', function(req, res, next) {
 
                 for(var index in row2){
 
-                    wsPlanillas.cell(filecounter,1).string(row2[index].Dni).style(estiloCentrado);
+                    wsPlanillas.cell(filecounter,1).number(row2[index].Dni).style(estiloCentrado);
                     wsPlanillas.cell(filecounter,2).string(row2[index].Sexo).style(estiloCentrado);
                     wsPlanillas.cell(filecounter,3).string(row2[index].Ejemplar).style(estiloCentrado);
                     wsPlanillas.cell(filecounter,4).date(new Date(row2[index].Vencimiento)).style(estiloCentrado).style(estiloFecha);
