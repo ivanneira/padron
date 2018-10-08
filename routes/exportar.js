@@ -210,7 +210,7 @@ router.get('/excel', function(req, res, next) {
                     wsEncuestas.cell(filecounter,1).string(row2[index].Dni).style(estiloCentrado);
                     wsEncuestas.cell(filecounter,2).string(row2[index].Sexo).style(estiloCentrado);
                     wsEncuestas.cell(filecounter,3).string(row2[index].Ejemplar).style(estiloCentrado);
-                    wsEncuestas.cell(filecounter,4).date(new Date(row2[index].Vencimiento)).style(estiloCentrado).style(estiloFecha);
+                    wsEncuestas.cell(filecounter,4).string(row2[index].Vencimiento).style(estiloCentrado).style(estiloFecha);
                     wsEncuestas.cell(filecounter,5).date(new Date(row2[index].Emision)).style(estiloCentrado).style(estiloFecha);
                     wsEncuestas.cell(filecounter,6).string(row2[index].Apellido);
                     wsEncuestas.cell(filecounter,7).string(row2[index].Nombre).style(estiloCentrado);
