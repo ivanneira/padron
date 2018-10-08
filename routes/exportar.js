@@ -172,7 +172,6 @@ router.get('/excel', function(req, res, next) {
         knex.raw("select Dni,  Sexo, Ejemplar, Vencimiento, Emision, Apellido, Nombre, Nacimiento, Fallecimiento, Cuil, Calle, Piso, Departamento, Cpostal,  Barrio, Monoblock, Ciudad, Municipio, Provincia, Pais  from padron pa where pa.id not in (select re.registro from registro re)")
         .then(function(row2,e2){
 
-            console.log(row2)
 
             if(e2){
                 //console.log(e)
@@ -207,6 +206,8 @@ router.get('/excel', function(req, res, next) {
 
                 for(var index in row2){
 
+                    console.log(row2[index])
+
                     wsEncuestas.cell(filecounter,1).string(row2[index].Dni).style(estiloCentrado);
                     wsEncuestas.cell(filecounter,2).string(row2[index].Sexo).style(estiloCentrado);
                     wsEncuestas.cell(filecounter,3).string(row2[index].Ejemplar).style(estiloCentrado);
@@ -219,7 +220,7 @@ router.get('/excel', function(req, res, next) {
                     wsEncuestas.cell(filecounter,10).string(row2[index].Cuil);
                     wsEncuestas.cell(filecounter,11).string(row2[index].Calle);
                     wsEncuestas.cell(filecounter,12).string(row2[index].Piso).style(estiloCentrado).style(estiloFecha);
-                    wsEncuestas.cell(filecounter,13).string(row2[index].Departamento.toString()).style(estiloCentrado);
+                    wsEncuestas.cell(filecounter,13).string(row2[index].Departamento).style(estiloCentrado);
                     wsEncuestas.cell(filecounter,14).string(row2[index].Cpostal);
                     wsEncuestas.cell(filecounter,15).string(row2[index].Barrio);
                     wsEncuestas.cell(filecounter,16).string(row2[index].Monoblock);
