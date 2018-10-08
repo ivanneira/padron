@@ -207,26 +207,26 @@ router.get('/excel', function(req, res, next) {
 
                 for(var index in row2){
 
-                    wsPlanillas.cell(filecounter,1).number(row2[index].Dni).style(estiloCentrado);
-                    wsPlanillas.cell(filecounter,2).string(row2[index].Sexo).style(estiloCentrado);
-                    wsPlanillas.cell(filecounter,3).string(row2[index].Ejemplar).style(estiloCentrado);
-                    wsPlanillas.cell(filecounter,4).date(new Date(row2[index].Vencimiento)).style(estiloCentrado).style(estiloFecha);
-                    wsPlanillas.cell(filecounter,5).date(new Date(row2[index].Emision)).style(estiloCentrado).style(estiloFecha);
-                    wsPlanillas.cell(filecounter,6).string(row2[index].Apellido);
-                    wsPlanillas.cell(filecounter,7).string(row2[index].Nombre).style(estiloCentrado);
-                    wsPlanillas.cell(filecounter,8).date(new Date(row2[index].Nacimiento)).style(estiloCentrado).style(estiloFecha);
-                    wsPlanillas.cell(filecounter,9).date(new Date(row2[index].Fallecimiento)).style(estiloCentrado).style(estiloFecha);
-                    wsPlanillas.cell(filecounter,10).string(row2[index].Cuil);
-                    wsPlanillas.cell(filecounter,11).string(row2[index].Calle);
-                    wsPlanillas.cell(filecounter,12).string(row2[index].Piso).style(estiloCentrado).style(estiloFecha);
-                    wsPlanillas.cell(filecounter,13).string(row2[index].Departamento.toString()).style(estiloCentrado);
-                    wsPlanillas.cell(filecounter,14).string(row2[index].Cpostal);
-                    wsPlanillas.cell(filecounter,15).string(row2[index].Barrio);
-                    wsPlanillas.cell(filecounter,16).string(row2[index].Monoblock);
-                    wsPlanillas.cell(filecounter,17).string(row2[index].Ciudad);
-                    wsPlanillas.cell(filecounter,18).string(row2[index].Municipio);
-                    wsPlanillas.cell(filecounter,19).string(row2[index].Provincia);
-                    wsPlanillas.cell(filecounter,20).string(row2[index].Pais);
+                    wsEncuestas.cell(filecounter,1).string(row2[index].Dni).style(estiloCentrado);
+                    wsEncuestas.cell(filecounter,2).string(row2[index].Sexo).style(estiloCentrado);
+                    wsEncuestas.cell(filecounter,3).string(row2[index].Ejemplar).style(estiloCentrado);
+                    wsEncuestas.cell(filecounter,4).date(new Date(row2[index].Vencimiento)).style(estiloCentrado).style(estiloFecha);
+                    wsEncuestas.cell(filecounter,5).date(new Date(row2[index].Emision)).style(estiloCentrado).style(estiloFecha);
+                    wsEncuestas.cell(filecounter,6).string(row2[index].Apellido);
+                    wsEncuestas.cell(filecounter,7).string(row2[index].Nombre).style(estiloCentrado);
+                    wsEncuestas.cell(filecounter,8).date(new Date(row2[index].Nacimiento)).style(estiloCentrado).style(estiloFecha);
+                    wsEncuestas.cell(filecounter,9).date(new Date(row2[index].Fallecimiento)).style(estiloCentrado).style(estiloFecha);
+                    wsEncuestas.cell(filecounter,10).string(row2[index].Cuil);
+                    wsEncuestas.cell(filecounter,11).string(row2[index].Calle);
+                    wsEncuestas.cell(filecounter,12).string(row2[index].Piso).style(estiloCentrado).style(estiloFecha);
+                    wsEncuestas.cell(filecounter,13).string(row2[index].Departamento.toString()).style(estiloCentrado);
+                    wsEncuestas.cell(filecounter,14).string(row2[index].Cpostal);
+                    wsEncuestas.cell(filecounter,15).string(row2[index].Barrio);
+                    wsEncuestas.cell(filecounter,16).string(row2[index].Monoblock);
+                    wsEncuestas.cell(filecounter,17).string(row2[index].Ciudad);
+                    wsEncuestas.cell(filecounter,18).string(row2[index].Municipio);
+                    wsEncuestas.cell(filecounter,19).string(row2[index].Provincia);
+                    wsEncuestas.cell(filecounter,20).string(row2[index].Pais);
 
                     filecounter++;
                 }
