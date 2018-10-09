@@ -169,7 +169,32 @@ router.get('/excel', function(req, res, next) {
         wsPlanillas.column(25).setWidth(20);
         wsPlanillas.column(26).setWidth(30);
 
-        knex.raw("select Dni,  Sexo, Ejemplar, Vencimiento, Emision, Apellido, Nombre, Nacimiento, Fallecimiento, Cuil, Calle, Piso, Departamento, Cpostal,  Barrio, Monoblock, Ciudad, Municipio, Provincia, Pais  from padron pa where pa.id not in (select re.registro from registro re)")
+        knex.column(
+            "Dni",  
+            "Sexo",
+            "Ejemplar",
+            "Vencimiento",
+            "Emision",
+            "Apellido",
+            "Nombre",
+            "Nacimiento",
+            "Fallecimiento",
+            "Cuil",
+            "Calle",
+            "Piso",
+            "Departamento",
+            "Cpostal",
+            "Barrio",
+            "Monoblock",
+            "Ciudad",
+            "Municipio",
+            "Provincia",
+            "Pais")
+            .select()
+            .from('padron')
+            .whereNotIn('id', knex.raw('select registro from registro'))
+        
+        
         .then(function(row2,e2){
 
 
@@ -206,17 +231,17 @@ router.get('/excel', function(req, res, next) {
 
                 for(var index in row2){
 
-                    console.log(row2[index])
+                    //console.log(row2[index])
 
                     wsEncuestas.cell(filecounter,1).string(row2[index].Dni).style(estiloCentrado);
                     wsEncuestas.cell(filecounter,2).string(row2[index].Sexo).style(estiloCentrado);
                     wsEncuestas.cell(filecounter,3).string(row2[index].Ejemplar).style(estiloCentrado);
-                    wsEncuestas.cell(filecounter,4).string(row2[index].Vencimiento).style(estiloCentrado).style(estiloFecha);
-                    wsEncuestas.cell(filecounter,5).string(row2[index].Emision).style(estiloCentrado).style(estiloFecha);
+                    wsEncuestas.cell(filecounter,4).date(new Date(row2[index].Vencimiento)).style(estiloCentrado).style(estiloFecha);
+                    wsEncuestas.cell(filecounter,5).date(new Date(row2[index].Emision)).style(estiloCentrado).style(estiloFecha);
                     wsEncuestas.cell(filecounter,6).string(row2[index].Apellido);
                     wsEncuestas.cell(filecounter,7).string(row2[index].Nombre).style(estiloCentrado);
-                    wsEncuestas.cell(filecounter,8).string(row2[index].Nacimiento).style(estiloCentrado).style(estiloFecha);
-                    wsEncuestas.cell(filecounter,9).string(row2[index].Fallecimiento).style(estiloCentrado).style(estiloFecha);
+                    wsEncuestas.cell(filecounter,8).date(new Date(row2[index].Nacimiento)).style(estiloCentrado).style(estiloFecha);
+                    wsEncuestas.cell(filecounter,9).string(row2[index].Fallecimiento.toString()).style(estiloCentrado).style(estiloFecha);
                     wsEncuestas.cell(filecounter,10).string(row2[index].Cuil);
                     wsEncuestas.cell(filecounter,11).string(row2[index].Calle);
                     wsEncuestas.cell(filecounter,12).string(row2[index].Piso).style(estiloCentrado).style(estiloFecha);
@@ -233,6 +258,27 @@ router.get('/excel', function(req, res, next) {
                 }
 
               }
+
+              wsEncuestas.column(1).setWidth(15);
+              wsEncuestas.column(2).setWidth(15);
+              wsEncuestas.column(3).setWidth(15);
+              wsEncuestas.column(4).setWidth(15);
+              wsEncuestas.column(5).setWidth(15);
+              wsEncuestas.column(6).setWidth(20);
+              wsEncuestas.column(7).setWidth(20);
+              wsEncuestas.column(8).setWidth(15);
+              wsEncuestas.column(9).setWidth(20);
+              wsEncuestas.column(10).setWidth(20);
+              wsEncuestas.column(11).setWidth(25);
+              wsEncuestas.column(12).setWidth(15);
+              wsEncuestas.column(13).setWidth(15);
+              wsEncuestas.column(14).setWidth(20);
+              wsEncuestas.column(15).setWidth(25);
+              wsEncuestas.column(16).setWidth(20);
+              wsEncuestas.column(17).setWidth(20);
+              wsEncuestas.column(18).setWidth(20);
+              wsEncuestas.column(19).setWidth(15);
+              wsEncuestas.column(20).setWidth(15);
 
             workbook.write('listado.xlsx',res);
 
